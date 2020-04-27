@@ -26,14 +26,24 @@ let level = [
 for(var i in level){
     let elemUp = document.getElementById('contDiv');
     let maDiv = document.createElement('div');
-    maDiv.className = 'tab' + i;
+    maDiv.className = 'ligne';
+    
 
     for (var j in level[i]){
         let maDivIn = document.createElement('div');
-        maDivIn.className = 'tabIn' + j;
-        maDiv.appendChild(maDivIn);
-    }
 
-    elemUp.appendChild(maDiv);
+        if (level[i][j] === 0){
+            maDivIn.className = 'mur';
+        }
+        else if (level[i][j] === 1){
+            maDivIn.className = 'sol';
+        }
+        else if (level[i][j] === 2){
+            maDivIn.className = 'gum';
+        }   
+        elemUp.appendChild(maDivIn);
+    }
+    
+    
 }
 

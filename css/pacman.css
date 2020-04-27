@@ -2,6 +2,19 @@
     display: grid;
     grid-template-columns: repeat(19, 35px);
     grid-template-rows: repeat(22, 35px);
-    border: 1px solid black;
 }
 
+.ligne{
+    background-color: cadetblue;
+}
+.mur{
+    background-color: blue;
+}
+
+.sol{
+    background-color: black;
+}
+
+.gum{
+    background-color: burlywood;
+}
