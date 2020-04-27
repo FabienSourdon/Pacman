@@ -22,3 +22,18 @@ let level = [
 [0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
+
+for(var i in level){
+    let elemUp = document.getElementById('contDiv');
+    let maDiv = document.createElement('div');
+    maDiv.className = 'tab' + i;
+
+    for (var j in level[i]){
+        let maDivIn = document.createElement('div');
+        maDivIn.className = 'tabIn' + j;
+        maDiv.appendChild(maDivIn);
+    }
+
+    elemUp.appendChild(maDiv);
+}
+
