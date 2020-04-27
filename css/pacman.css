@@ -1,20 +1,24 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 .container{
     display: grid;
     grid-template-columns: repeat(19, 35px);
     grid-template-rows: repeat(22, 35px);
 }
 
-.ligne{
-    background-color: cadetblue;
-}
 .mur{
-    background-color: blue;
+    background-image: url(../img/mur.png);
 }
 
 .sol{
-    background-color: black;
+    background-image: url(../img/sol.gif);
 }
 
 .gum{
-    background-color: burlywood;
+    background-image: url(../img/rupee.png);
 }
