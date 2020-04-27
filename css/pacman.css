@@ -22,3 +22,7 @@ body{
 .gum{
     background-image: url(../img/rupee.png);
 }
+
+.player{
+    background-image: url(../img/link.png);
+}

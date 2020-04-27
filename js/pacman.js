@@ -23,7 +23,21 @@ let level = [
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-start();
+let character = {
+    y : 2,
+    x : 2,
+    direction:1
+}
+
+refresh();
+
+function refresh()
+{
+    start();
+    player();
+// là on mets le code a afficher toutes les secondes
+    setTimeout(refresh, 1000)
+}
 
 function start()
 {
@@ -37,21 +51,29 @@ function start()
 
             if (level[i][j] === 0){
                 maDivIn.className = 'mur';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
             }
             else if (level[i][j] === 1){
                 maDivIn.className = 'sol';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
             }
             else if (level[i][j] === 2){
                 maDivIn.className = 'gum';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
             }   
             elemUp.appendChild(maDivIn);
         }
     }
 }
 
-function refresh()
-{
-// là on mets le code a afficher toutes les secondes
-  setTimout(refresh, 1000)
+function player(){
+    let elemUp = document.getElementById('contDiv');
+    let player = document.createElement('div');
+    player.className = 'player';
+    player.style.gridColumn = character.x;
+    player.style.gridRow = character.y;
+    elemUp.appendChild(player);
 }
-
