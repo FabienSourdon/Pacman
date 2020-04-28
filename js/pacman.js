@@ -26,7 +26,7 @@ let level = [
 let character = {
     y : 2,
     x : 2,
-    direction:1
+    direction: 1
 }
 
 refresh();
@@ -35,6 +35,7 @@ function refresh()
 {
     start();
     player();
+    movePlayer();
 // là on mets le code a afficher toutes les secondes
     setTimeout(refresh, 1000)
 }
@@ -76,4 +77,14 @@ function player(){
     player.style.gridColumn = character.x;
     player.style.gridRow = character.y;
     elemUp.appendChild(player);
+}
+
+function movePlayer(){
+    
+    if (character.direction === 1){
+        character.x++;
+        if(level[character.x-1][character.y-1] === 0){
+            character.x--;
+        }
+    }
 }

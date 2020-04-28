@@ -1,3 +1,8 @@
+@font-face{
+    font-family: "Crackman";
+    src: url("../fonts/crackman/crackman.ttf") format("truetype");
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -5,6 +10,12 @@ body{
     align-items: center;
 
 }
+
+h1{
+    font-family: "crackman";
+    font-size: 40px;
+}
+
 .container{
     display: grid;
     grid-template-columns: repeat(19, 35px);
