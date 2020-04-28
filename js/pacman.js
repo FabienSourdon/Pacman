@@ -29,6 +29,8 @@ let character = {
     direction: 1
 }
 
+let score = 0;
+
 refresh();
 
 function refresh()
@@ -83,8 +85,19 @@ function movePlayer(){
     
     if (character.direction === 1){
         character.x++;
-        if(level[character.x-1][character.y-1] === 0){
+        if(level[character.y-1][character.x-1] === 0){
             character.x--;
         }
     }
+
+    if(level[character.y-1][character.x-1] === 2){
+        level[character.y-1][character.x-1] = 1;
+        score++;
+        document.getElementById('score').innerHTML = 'score :' + score;
+    }
+}
+
+function arrows(){
+    var player = document.getElementById('player');
+
 }
