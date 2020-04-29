@@ -37,3 +37,19 @@ h1{
 .player{
     background-image: url(../img/link.png);
 }
+
+.ghost0{
+    background-image: url(../img/chicken.png);
+}
+
+.ghost1{
+    background-image: url(../img/chicken.png);
+}
+
+.ghost2{
+    background-image: url(../img/chicken.png);
+}
+
+.ghost3{
+    background-image: url(../img/chicken.png);
+}
