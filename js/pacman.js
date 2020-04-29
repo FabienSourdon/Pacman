@@ -52,8 +52,6 @@ let character = {
     direction: 1
 }
 
-
-
 let score = 0;
 
 refresh();

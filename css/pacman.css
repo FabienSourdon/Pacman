@@ -3,15 +3,40 @@
     src: url("../fonts/crackman/crackman.ttf") format("truetype");
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(../img/bckgrnd.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.contHead{
+    width: 39%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0 5px;
+    margin: 5px 0;
 }
 
 h1{
+    font-family: "crackman";
+    font-size: 40px;
+}
+
+#score{
     font-family: "crackman";
     font-size: 40px;
 }
@@ -20,6 +45,15 @@ h1{
     display: grid;
     grid-template-columns: repeat(19, 35px);
     grid-template-rows: repeat(22, 35px);
+}
+
+button{
+    width: 650px;
+    height: 60px;
+    margin-top: 5px;
+    font-family: "crackman";
+    font-size: 35px;
+    background-color: white;
 }
 
 .mur{
