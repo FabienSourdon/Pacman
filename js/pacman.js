@@ -183,12 +183,13 @@ function movePlayer(){
 function moveEnemy(e){
     
     enemy[e].direction = ranEnemy(1, 5);
+    console.log(enemy[e].direction);
 
     if(enemy[e].x > level[0].length){
-        enemy.x = 0;
+        enemy[e].x = 1;
     }
-    else if(enemy[e].x < 0){
-        enemy[e].x = 20;
+    else if(enemy[e].x < 1){
+        enemy[e].x = 19;
     }
 
     if(enemy[e].direction === 4){
