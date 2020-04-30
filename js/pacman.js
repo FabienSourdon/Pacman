@@ -1,56 +1,202 @@
-let level = [
-[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-[0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
-[0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-[0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-[0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
-[0,2,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,2,0],
-[0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
-[0,0,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,0,0],
-[0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
-[0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
-[2,2,2,2,2,2,2,0,1,1,1,0,2,2,2,2,2,2,2],
-[0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
-[0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
-[0,0,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,0,0],
-[0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
-[0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-[0,2,2,0,2,2,2,2,2,2,2,2,2,2,2,0,2,2,0],
-[0,0,2,0,2,0,2,0,0,0,0,0,2,0,2,0,2,0,0],
-[0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
-[0,2,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,2,0],
-[0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
-[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-];
+class gridLoader{
+    lvl;
+    
+    constructor(){
+        this.lvl = [
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
+            [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
+            [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
+            [0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+            [0,2,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,2,0],
+            [0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
+            [0,0,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,0,0],
+            [0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
+            [0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
+            [2,2,2,2,2,2,2,0,1,1,1,0,2,2,2,2,2,2,2],
+            [0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
+            [0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
+            [0,0,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,0,0],
+            [0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
+            [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
+            [0,2,2,0,2,2,2,2,2,2,2,2,2,2,2,0,2,2,0],
+            [0,0,2,0,2,0,2,0,0,0,0,0,2,0,2,0,2,0,0],
+            [0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
+            [0,2,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,2,0],
+            [0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            ]
+    }
+
+    start(){
+    let elemUp = document.getElementById('contDiv');
+    elemUp.innerHTML = " ";
+
+    for(var i in this.lvl){
+        for (var j in this.lvl[i]){
+            
+            let maDivIn = document.createElement('div');
+
+            if (this.lvl[i][j] == 0){
+                maDivIn.className = 'mur';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
+            }
+            else if (this.lvl[i][j] == 1){
+                maDivIn.className = 'sol';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
+            }
+            else if (this.lvl[i][j] == 2){
+                maDivIn.className = 'gum';
+                maDivIn.style.gridColumn = parseInt(j)+1;
+                maDivIn.style.gridRow = parseInt(i)+1;
+            }   
+            elemUp.appendChild(maDivIn);
+        }
+    }
+}
+}
+
+let level = new gridLoader()
+console.log(level);
+
+class enemyLoader{
+    y;
+    x;
+    direction;
+
+    constructor(e,f,g){
+        this.y = e;
+        this.x = f;
+        this.direction = g;
+    }
+
+    ghost(e){
+        let elemUp = document.getElementById('contDiv');
+        let ghost = document.createElement('div');
+        ghost.className = 'ghost' + e;
+        ghost.style.gridColumn = this.x;
+        ghost.style.gridRow = this.y;
+        elemUp.appendChild(ghost);
+    }
+
+    ranEnemy(min, max){
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    moveEnemy(e){
+    
+        this.direction = this.ranEnemy(1, 5);
+        console.log(this.direction);
+    
+        if(this.x > level.lvl[0].length){
+            this.x = 1;
+        }
+        else if(this.x < 1){
+            this.x = 19;
+        }
+    
+        if(this.direction === 4){
+            this.y--;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.y++;
+            }
+        }
+        else if(this.direction === 3){
+            this.x--;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.x++;
+            }
+        }
+        else if(this.direction === 2){
+            this.y++;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.y--;
+            }
+        }
+        else if(this.direction === 1){
+            this.x++;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.x--;
+            }
+        }
+    }
+}
 
 let enemy = [
-    {
-        y:11,
-        x:10,
-        direction:4
-    },
-    {
-        y:11,
-        x:10,
-        direction:4
-    },
-    {
-        y:11,
-        x:10,
-        direction:4
-    },
-    {
-        y:11,
-        x:10,
-        direction:4
-    },
-];
+    new enemyLoader(11,10,4),
+    new enemyLoader(11,10,4),
+    new enemyLoader(11,10,4),
+    new enemyLoader(11,10,4)
+]
 
-let character = {
-    y : 2,
-    x : 2,
-    direction: 1
+console.log(enemy);
+
+class charLoader{
+    y;
+    x;
+    direction;
+
+    constructor(e, f, g){
+        this.y = e;
+        this.x = f;
+        this.direction = g;
+    }
+
+    player(){
+        let elemUp = document.getElementById('contDiv');
+        let player = document.createElement('div');
+        player.className = 'player';
+        player.style.gridColumn = this.x;
+        player.style.gridRow = this.y;
+        elemUp.appendChild(player);
+    }
+
+    movePlayer(level){
+        if(this.x > level.lvl[0].length){
+            this.x = 0;
+        }
+        else if(this.x < 0){
+            this.x = 20;
+        }
+    
+        if (this.direction === 1){
+            this.x++;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.x--;
+                }
+        }
+        else if(this.direction === 2){
+            this.y++;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.y--;
+            }
+        }
+        else if(this.direction === 3){
+            this.x--;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.x++;
+            }
+        }
+        else if(this.direction === 4){
+            this.y--;
+            if(level.lvl[this.y-1][this.x-1] === 0){
+                this.y++;
+            }
+        }
+    
+        if(level.lvl[this.y-1][this.x-1] === 2){
+            level.lvl[this.y-1][this.x-1] = 1;
+            score++;
+            document.getElementById('score').innerHTML = 'score : ' + score;
+        }
+    }
 }
+
+let character = new charLoader(2,2,1);
 
 let score = 0;
 
@@ -61,25 +207,25 @@ document.addEventListener('keydown',arrows);
 function refresh()
 {
     let continues = true;
-    movePlayer();
+    character.movePlayer(level);
     for(var i in enemy){
         if(detectCol(i)){
             continues = false;
         };
     }
     for(var i in enemy){
-        moveEnemy(i);
+        enemy[i].moveEnemy(i);
     }
     for(var i in enemy){
         if(detectCol(i)){
             continues = false;
         };
     }
-    start();
-    player();
+    level.start();
+    character.player();
 
     for(var i in enemy){
-        ghost(i);
+        enemy[i].ghost(i);
     }
     
     if(win()){
@@ -90,132 +236,6 @@ function refresh()
         setTimeout(refresh, 500);
     };
     
-}
-
-function start()
-{
-    let elemUp = document.getElementById('contDiv');
-    elemUp.innerHTML = " ";
-
-    for(var i in level){
-        for (var j in level[i]){
-            
-            let maDivIn = document.createElement('div');
-
-            if (level[i][j] === 0){
-                maDivIn.className = 'mur';
-                maDivIn.style.gridColumn = parseInt(j)+1;
-                maDivIn.style.gridRow = parseInt(i)+1;
-            }
-            else if (level[i][j] === 1){
-                maDivIn.className = 'sol';
-                maDivIn.style.gridColumn = parseInt(j)+1;
-                maDivIn.style.gridRow = parseInt(i)+1;
-            }
-            else if (level[i][j] === 2){
-                maDivIn.className = 'gum';
-                maDivIn.style.gridColumn = parseInt(j)+1;
-                maDivIn.style.gridRow = parseInt(i)+1;
-            }   
-            elemUp.appendChild(maDivIn);
-        }
-    }
-}
-
-function player(){
-    let elemUp = document.getElementById('contDiv');
-    let player = document.createElement('div');
-    player.className = 'player';
-    player.style.gridColumn = character.x;
-    player.style.gridRow = character.y;
-    elemUp.appendChild(player);
-}
-
-function ghost(e){
-    let elemUp = document.getElementById('contDiv');
-    let ghost = document.createElement('div');
-    ghost.className = 'ghost' + e;
-    ghost.style.gridColumn = enemy[e].x;
-    ghost.style.gridRow = enemy[e].y;
-    elemUp.appendChild(ghost);
-}
-
-function movePlayer(){
-    if(character.x > level[0].length){
-        character.x = 0;
-    }
-    else if(character.x < 0){
-        character.x = 20;
-    }
-
-    if (character.direction === 1){
-        character.x++;
-        if(level[character.y-1][character.x-1] === 0){
-            character.x--;
-            }
-    }
-    else if(character.direction === 2){
-        character.y++;
-        if(level[character.y-1][character.x-1] === 0){
-            character.y--;
-        }
-    }
-    else if(character.direction === 3){
-        character.x--;
-        if(level[character.y-1][character.x-1] === 0){
-            character.x++;
-        }
-    }
-    else if(character.direction === 4){
-        character.y--;
-        if(level[character.y-1][character.x-1] === 0){
-            character.y++;
-        }
-    }
-
-    if(level[character.y-1][character.x-1] === 2){
-        level[character.y-1][character.x-1] = 1;
-        score++;
-        document.getElementById('score').innerHTML = 'score : ' + score;
-    }
-}
-
-function moveEnemy(e){
-    
-    enemy[e].direction = ranEnemy(1, 5);
-    console.log(enemy[e].direction);
-
-    if(enemy[e].x > level[0].length){
-        enemy[e].x = 1;
-    }
-    else if(enemy[e].x < 1){
-        enemy[e].x = 19;
-    }
-
-    if(enemy[e].direction === 4){
-        enemy[e].y--;
-        if(level[enemy[e].y-1][enemy[e].x-1] === 0){
-            enemy[e].y++;
-        }
-    }
-    else if(enemy[e].direction === 3){
-        enemy[e].x--;
-        if(level[enemy[e].y-1][enemy[e].x-1] === 0){
-            enemy[e].x++;
-        }
-    }
-    else if(enemy[e].direction === 2){
-        enemy[e].y++;
-        if(level[enemy[e].y-1][enemy[e].x-1] === 0){
-            enemy[e].y--;
-        }
-    }
-    else if(enemy[e].direction === 1){
-        enemy[e].x++;
-        if(level[enemy[e].y-1][enemy[e].x-1] === 0){
-            enemy[e].x--;
-        }
-    }
 }
 
 function arrows(e){
@@ -234,12 +254,6 @@ function arrows(e){
     }
 }
 
-function ranEnemy(min, max){
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
 function detectCol(e){
     
     if(character.x === enemy[e].x && character.y === enemy[e].y){
@@ -252,9 +266,9 @@ function detectCol(e){
 
 function win(){
     let compteur = 0;
-    for(var i in level){
-        for(var j in level[i]){
-            if(level[i][j] === 2){
+    for(var i in level.lvl){
+        for(var j in level.lvl[i]){
+            if(level.lvl[i][j] === 2){
                 compteur++;
             }
         }
